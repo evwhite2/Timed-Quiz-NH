@@ -58,7 +58,7 @@ function nextQ(){
     timeLeft=16;
     console.log("click attempted: ", qAttempted);
     $("#questionNo").text(questions[qCount].number);
-    $("#title-div").text(questions[qCount].title);
+    $("#info-div").text(questions[qCount].title);
     $("#optionA").text(questions[qCount].choices[0]);
     $("#optionB").text(questions[qCount].choices[1]);
     $("#optionC").text(questions[qCount].choices[2]);

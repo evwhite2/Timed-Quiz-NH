@@ -32,10 +32,10 @@ h1{
 
 }
 
-#info-div{
+.info{
     color: azure;
     font-size: 20px;;
-    height:100px;
+    height:50px;
 }
 
 .optionsBtn{
@@ -76,8 +76,4 @@ h1{
     font-size:25px;
     height:40px;
     padding-top:20px;
-}
-
-.title{
-    font-size:25px;
 }
