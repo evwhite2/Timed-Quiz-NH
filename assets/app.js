@@ -54,9 +54,8 @@ function beginQuiz(start){
 
 function nextQ(){
     qAttempted=false;
-    console.log(qCount);
     timeLeft=16;
-    console.log("click attempted: ", qAttempted);
+    console.log("beginning new question at question index "+qCount);
     $("#questionNo").text(questions[qCount].number);
     $("#info-div").text(questions[qCount].title);
     $("#optionA").text(questions[qCount].choices[0]);
@@ -64,48 +63,43 @@ function nextQ(){
     $("#optionC").text(questions[qCount].choices[2]);
     $("#optionD").text(questions[qCount].choices[3]);
 
-    
+    console.log("click attempted: "+qAttempted);
     $(".optionsBtn").on("click", function(userAnswer){
         qAttempted=true;
         console.log("click attempted: ", qAttempted);
         userAnswer= userAnswer.target.getAttribute("value")
-        // userAnswer=this.getAttribute("value");
         
-        console.log("My answer is "+userAnswer);
-
-        checkA();
-
-        function checkA(userAnswer){
-    
-            console.log("this is the selected answer: "+userAnswer);
+        console.log("user answer is "+userAnswer);
+ 
+            console.log("actual answer is "+questions[qCount].answer);
             
-            console.log("checkA() ran");
+            console.log("running answer check");
            
             if (userAnswer === questions[qCount].answer){
                 score++;
-            }else if(userAnswer === undefined){
+                console.log("current score: "+ score);
                 qCount++;
-                
+                console.log("qCount after answer "+ qCount);
+                checkCount();
+            }else if (userAnswer != questions[qCount].answer){
+                qCount++;
+                timeLeft=0;
+                checkCount();
             }
             
-            timeLeft=0;
-        
-            // if (qCount<questions.length){
-            //     qCount++
-            //     nextQ();
-            // }else{
-            //     $("#timerStatus").text("Game Over");
-            //     clearInterval(timer);
-            //     scoreKeeper();
-            // }
-        }
-        
+        });
+            function checkCount(){
 
-        if(timeLeft===0){
-            qCount++;
-            nextQ();
-        }
-    });
+            if(qCount< 5){
+                nextQ();
+                console.log("game is not over, go to next question");
+            }else{
+                $("#timerStatus").text("Game Over");
+                clearInterval(timer);
+                scoreKeeper();
+            }
+        }        
+    
     
 }
 
@@ -114,7 +108,7 @@ function timePerQ(){
 
     timeLeft--
     $("#timerStatus").text(timeLeft+ " seconds left");
-        console.log("QCount: "+qCount);
+
     if (timeLeft === 0){
         $("#timerStatus").text("Time's Up!")
         qCount++;
