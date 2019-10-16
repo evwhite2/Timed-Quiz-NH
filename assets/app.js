@@ -13,13 +13,13 @@ var questions= [
     },
     {   
         number: "Question 3",
-        title: "What is the Homo Sapien’s closest genetic relative?",
+        title: "What is the Homo Sapien’s closest genetic relative(s)?",
         choices: ["A. Bonobos", "B. Orangutans ", "C. Chimpanzee", "D. Both A & C"],
         answer: "3"
     },
     {
         number: "Question 4",
-        title: "How long after the Big Bang did the first start begin to shine?",
+        title: "How long after the Big Bang did the first star begin to shine?",
         choices: ["A. 100 million years", "B. 550 million years", "C. 10 million years", "D. 80 million years "],
         answer: "0"
     },
@@ -28,6 +28,36 @@ var questions= [
         title: "What was the last major landmass to be inhabited by humans?",
         choices: ["A. Madagascar", "B. New Zealand", "C. Shetland Islands", "D. Falkland Islands"],
         answer: "1"
+    },
+    {
+        number: "Question 6",
+        title: "What was the site of the largest known volcanic eruption?",
+        choices: ["A. Krakatoa", "B. Yellowstone", "C. Huaynaputina", "D. Mt Thera"],
+        answer: "1"
+    },
+    {
+        number: "Question 7",
+        title: "Which of the following present-day countries were part of the ancient Kingdom of Kush?",
+        choices: ["A. Angola, Namibia, and South Afirca", "B. South Africa, Lesotho, and Botswana", "C. Sudan, Ethiopia, and Eritrea", "D. Morroco, Algeria, Mauritania"],
+        answer: "2"
+    },
+    {
+        number: "Question 8",
+        title: "How much of the unvierse is made up of dark matter?",
+        choices: ["A. 68%", "B. 47%", "C. 19%", "D. 27%"],
+        answer: "3"
+    },
+    {
+        number: "Question 9",
+        title: "What is the difference between a hurricane and a typhoon?",
+        choices: ["A. Wind speed", "B. Rainfall", "C. Destructiveness", "D. Location"],
+        answer: "3"
+    },
+    {
+        number: "Question 10",
+        title: "What part of the human brain is associated with autonomic functions?",
+        choices: ["A. Medulla", "B. Amygdala", "C. Hypothalamus", "D. Hippocampus"],
+        answer: "3"
     }
 ];
  
@@ -36,6 +66,7 @@ var endCount=questions.length;
 var timeLeft= 16;
 var timer;
 var score=0;
+var wrong=0;
 var userAnswer="";
 var qAttempted=false;
 
@@ -46,10 +77,12 @@ function beginQuiz(start){
     start.preventDefault();
     $("#info-div").text("");
     $("#startBtn").remove();
-    score =0;
+    score=0;
+    wrong=0;
     nextQ();
     timePerQ();
     timer= setInterval(timePerQ, 1000);
+
 }
 
 function nextQ(){
@@ -65,8 +98,11 @@ function nextQ(){
 
     console.log("click attempted: "+qAttempted);
     $(".optionsBtn").on("click", function(userAnswer){
+
         qAttempted=true;
+        
         console.log("click attempted: ", qAttempted);
+
         userAnswer= userAnswer.target.getAttribute("value")
         
         console.log("user answer is "+userAnswer);
@@ -79,18 +115,24 @@ function nextQ(){
                 score++;
                 console.log("current score: "+ score);
                 qCount++;
-                console.log("qCount after answer "+ qCount);
+                console.log("qCount after question answered correctly "+ qCount);
                 checkCount();
+
             }else if (userAnswer != questions[qCount].answer){
+                wrong++;
+                console.log("qCount after question answered incorrectly"+ qCount);
+                // timeLeft=0;
                 qCount++;
-                timeLeft=0;
                 checkCount();
             }
             
         });
-            function checkCount(){
 
-            if(qCount< 5){
+}
+
+function checkCount(){
+
+            if(qCount< questions.length+1){
                 nextQ();
                 console.log("game is not over, go to next question");
             }else{
@@ -98,11 +140,7 @@ function nextQ(){
                 clearInterval(timer);
                 scoreKeeper();
             }
-        }        
-    
-    
-}
-
+        }     
 
 function timePerQ(){
 
@@ -113,13 +151,10 @@ function timePerQ(){
         $("#timerStatus").text("Time's Up!")
         qCount++;
         nextQ();
-    } else if (timeLeft===0 && qCount>4){
-        $("#timerStatus").text("Game Over");
-        clearInterval(timer);
-        scoreKeeper();
     }
 }
 
 function scoreKeeper(){
-    $("#score").text("You answered "+score+" questions correctly");
+    $("#score").text("You answered "+score+" questions correctly, and "+wrong+" questions incorrectly");
+    
 }
