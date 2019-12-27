@@ -60,7 +60,8 @@ var questions= [
         answer: "3"
     }
 ];
- 
+
+var endGameCt = questions.length;
 var qCount=0;
 var endCount=questions.length;
 var timeLeft= 16;
@@ -68,93 +69,71 @@ var timer;
 var score=0;
 var wrong=0;
 var userAnswer="";
-var qAttempted=false;
 
 
-$("#startBtn").on("click", beginQuiz);
-
-function beginQuiz(start){
-    start.preventDefault();
-    $("#info-div").text("");
+function beginQuiz(){
     $("#startBtn").remove();
-    score=0;
-    wrong=0;
-    nextQ();
     timePerQ();
-    timer= setInterval(timePerQ, 1000);
-
+    timer = setInterval(timePerQ, 1000);
+    nextQ();
 }
-
-function nextQ(){
-    qAttempted=false;
-    timeLeft=16;
-    console.log("beginning new question at question index "+qCount);
-    $("#questionNo").text(questions[qCount].number);
-    $("#info-div").text(questions[qCount].title);
-    $("#optionA").text(questions[qCount].choices[0]);
-    $("#optionB").text(questions[qCount].choices[1]);
-    $("#optionC").text(questions[qCount].choices[2]);
-    $("#optionD").text(questions[qCount].choices[3]);
-
-    console.log("click attempted: "+qAttempted);
-    $(".optionsBtn").on("click", function(userAnswer){
-
-        qAttempted=true;
-        
-        console.log("click attempted: ", qAttempted);
-
-        userAnswer= userAnswer.target.getAttribute("value")
-        
-        console.log("user answer is "+userAnswer);
- 
-            console.log("actual answer is "+questions[qCount].answer);
-            
-            console.log("running answer check");
-           
-            if (userAnswer === questions[qCount].answer){
-                score++;
-                console.log("current score: "+ score);
-                qCount++;
-                console.log("qCount after question answered correctly "+ qCount);
-                checkCount();
-
-            }else if (userAnswer != questions[qCount].answer){
-                wrong++;
-                console.log("qCount after question answered incorrectly"+ qCount);
-                // timeLeft=0;
-                qCount++;
-                checkCount();
-            }
-            
-        });
-
-}
-
-function checkCount(){
-
-            if(qCount< questions.length+1){
-                nextQ();
-                console.log("game is not over, go to next question");
-            }else{
-                $("#timerStatus").text("Game Over");
-                clearInterval(timer);
-                scoreKeeper();
-            }
-        }     
 
 function timePerQ(){
-
     timeLeft--
     $("#timerStatus").text(timeLeft+ " seconds left");
-
-    if (timeLeft === 0){
-        $("#timerStatus").text("Time's Up!")
+    if(timeLeft=== 0){
+        $("#timerStatus").text("Time's Up!");
         qCount++;
         nextQ();
     }
 }
 
-function scoreKeeper(){
-    $("#score").text("You answered "+score+" questions correctly, and "+wrong+" questions incorrectly");
+function nextQ(){
     
+    console.log(`Question: ${qCount}`);
+
+    if(qCount< endGameCt){
+        timeLeft=16;
+        $("#questionNo").text(questions[qCount].number);
+        $("#info-div").text(questions[qCount].title);
+        $("#optionA").text(questions[qCount].choices[0]);
+        $("#optionB").text(questions[qCount].choices[1]);
+        $("#optionC").text(questions[qCount].choices[2]);
+        $("#optionD").text(questions[qCount].choices[3]);
+
+    }else if(qCount=== endGameCt){
+        console.log("game over");
+        $("#form").empty();
+        $(".info").empty();
+        $("#timerStatus").attr("style", "font-size: 50px;");
+        $("#timerStatus").text("Game Over");
+        clearInterval(timer);
+        scoreKeeper();
+    }
+
 }
+
+
+function scoreKeeper(){
+    $("#score").text("You answered "+score+" questions correctly, and "+wrong+" questions incorrectly");   
+}
+
+$(".optionsBtn").on("click", function(userAnswer){
+    userAnswer= userAnswer.target.getAttribute("value")
+    
+    console.log(`Correct Answer: ${questions[qCount].answer}`);
+    console.log(`User Answer: ${userAnswer}`)
+
+    if (userAnswer == questions[qCount].answer){
+        score++;
+        $("#timerStatus").text("Correct!");
+        
+    }else{
+        wrong++;
+        $("#timerStatus").text("Wrong!");
+    }
+    qCount++;
+    nextQ();
+});
+
+$("#startBtn").on("click", beginQuiz);
