@@ -1,6 +1,6 @@
 # Timed-Quiz-NH
 
-QuiTest your knowledge of natural science and human history!
+Test your knowledge of natural science and human history!
 
 This timed quiz was built using vanilla JavaScript. 
 
