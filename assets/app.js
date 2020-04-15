@@ -58,6 +58,18 @@ var questions= [
         title: "What part of the human brain is associated with autonomic functions?",
         choices: ["A. Medulla", "B. Amygdala", "C. Hypothalamus", "D. Hippocampus"],
         answer: "3"
+    },
+    {
+        number: "Question 11",
+        title: "How long does it take for Earth's moon to complete 1 rotation?",
+        choices: ["A. 36 hours", "B. 24 hours", "C. 12 hours", "D. It does not rotate"],
+        answer: "1"
+    },
+    {
+        number: "Question 12",
+        title: "Which one of the following is not a name of one of the Earth's tectonic plates?",
+        choices: ["A. Indian Plate", "B. Antartic Plate", "C. Atlantic Plate", "D. Pacific Plate"],
+        answer: "2"
     }
 ];
 
