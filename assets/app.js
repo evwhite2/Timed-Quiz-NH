@@ -67,9 +67,15 @@ var questions= [
     },
     {
         number: "Question 12",
-        title: "Which one of the following is not a name of one of the Earth's tectonic plates?",
+        title: "Which one of the following is not a name of one of the Earth's major tectonic plates?",
         choices: ["A. Indian Plate", "B. Antartic Plate", "C. Atlantic Plate", "D. Pacific Plate"],
         answer: "2"
+    },
+    {
+        number: "Question 13",
+        title: "Which of the following regions is home to the world's the largest desert?",
+        choices: ["A. North Africa", "B. Patagonia", "C. Arabia", "D. Antarctica"],
+        answer: "3"
     }
 ];
 
