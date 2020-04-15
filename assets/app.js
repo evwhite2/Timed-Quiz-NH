@@ -76,6 +76,12 @@ var questions= [
         title: "Which of the following regions is home to the world's the largest desert?",
         choices: ["A. North Africa", "B. Patagonia", "C. Arabia", "D. Antarctica"],
         answer: "3"
+    },
+    {
+        number: "Question 14",
+        title: "Which of the following elements is lightest",
+        choices: ["Tungston", "B. Cerium", "C. Lead", "D. Gold"],
+        answer: "1"
     }
 ];
 
