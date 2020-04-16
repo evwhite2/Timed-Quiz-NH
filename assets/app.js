@@ -112,7 +112,14 @@ var questions= [
         title: "What is the most common type of star found in te Milky Way?",
         choices: ["A. Red Giant", "B. Red Supergiant", "C. Red Dwarf", "D. White Dwarf"],
         answer: "2"
+    },
+    {
+        number: "Question 20",
+        title: "What is the smallest nation in Asia?",
+        choices: ["A. Palestine", "B. Cyprus", "C. Singapore", "D. Maldives"],
+        answer: "3"
     }
+
 ];
 
 var endGameCt = questions.length;
