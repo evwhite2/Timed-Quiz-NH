@@ -2,7 +2,7 @@
 
 Test your knowledge of natural science and human history!
 
-This timed quiz was built using vanilla JavaScript. 
+This timed quiz was built using JavaScript & jQuery. 
 
 An interval is set to count down "timeLeft" every second, Once the "timeLeft" variable reaches 0, the next question is called by incrementing the "qCount", which is set the first index in the array of "questions". The "qCount" is also incremented, of course, when the user selects an answer". 
 
@@ -14,3 +14,8 @@ https://evwhite2.github.io/Timed-Quiz-NH/
 
 Tech Used: 
 - jQuery
+
+Future Development:
+
+1. Add Penalty to time left per question, forcing user to click possible answers twice instead of once. 
+2. Add "start over" button at end of Quiz.
