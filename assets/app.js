@@ -106,6 +106,12 @@ var questions= [
         title: "Which Era of Earth history is known also as the 'Age of Reptiles and Conifers'?",
         choices: ["A. Mesoarchean", "B. Paleozoic", "C. Mesozoic", "D. Neoproterozoic"],
         answer: "2"
+    },
+    {
+        number: "Question 19",
+        title: "What is the most common type of star found in te Milky Way?",
+        choices: ["A. Red Giant", "B. Red Supergiant", "C. Red Dwarf", "D. White Dwarf"],
+        answer: "2"
     }
 ];
 
