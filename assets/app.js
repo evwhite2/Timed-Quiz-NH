@@ -88,6 +88,12 @@ var questions= [
         title: "Which of these works is the oldest known piece of literature?",
         choices: ["A. Kesh Temple Hymm", "B. The Epic of Gilgamesh", "C. The Odyssey", "D. Pyramid Texts"],
         answer: "0"
+    },
+    {
+        number: "Question 16",
+        title: "How long ago did the neolithic revolution beign to take place?",
+        choices: ["A. 5-10 thousand years ago", "B. 10-15 thousand years ago", "C. 15-20 thousand years ago", "D. 20-25 thousand years ago"],
+        answer: "2"
     }
 ];
 
