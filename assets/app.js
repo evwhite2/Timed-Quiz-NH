@@ -134,6 +134,8 @@ var userAnswer="";
 
 function beginQuiz(){
     $("#startBtn").remove();
+    $(".optionsBtn").css("padding", "5px");
+    $(".optionsBtn").css("width", "350px");
     timePerQ();
     timer = setInterval(timePerQ, 1000);
     nextQ();
@@ -163,7 +165,7 @@ function nextQ(){
         $("#optionD").text(questions[qCount].choices[3]);
 
     }else if(qCount=== endGameCt){
-        console.log("game over");
+    
         $("#form").empty();
         $(".info").empty();
         $("#timerStatus").attr("style", "font-size: 50px;");
@@ -176,14 +178,13 @@ function nextQ(){
 
 
 function scoreKeeper(){
+    $("#score").css("padding", "5px");
     $("#score").text("You answered "+score+" questions correctly, and "+wrong+" questions incorrectly");   
 }
 
 $(".optionsBtn").on("click", function(userAnswer){
     userAnswer= userAnswer.target.getAttribute("value")
-    
-    console.log(`Correct Answer: ${questions[qCount].answer}`);
-    console.log(`User Answer: ${userAnswer}`)
+
 
     if (userAnswer == questions[qCount].answer){
         score++;
