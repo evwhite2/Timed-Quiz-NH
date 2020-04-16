@@ -80,8 +80,14 @@ var questions= [
     {
         number: "Question 14",
         title: "Which of the following elements is lightest",
-        choices: ["Tungston", "B. Cerium", "C. Lead", "D. Gold"],
+        choices: ["A. Tungston", "B. Cerium", "C. Lead", "D. Gold"],
         answer: "1"
+    },
+    {
+        number: "Question 15",
+        title: "Which of these works is the oldest known piece of literature?",
+        choices: ["A. Kesh Temple Hymm", "B. The Epic of Gilgamesh", "C. The Odyssey", "D. Pyramid Texts"],
+        answer: "0"
     }
 ];
 
