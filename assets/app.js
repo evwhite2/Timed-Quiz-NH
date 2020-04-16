@@ -94,6 +94,12 @@ var questions= [
         title: "How long ago did the neolithic revolution beign to take place?",
         choices: ["A. 5-10 thousand years ago", "B. 10-15 thousand years ago", "C. 15-20 thousand years ago", "D. 20-25 thousand years ago"],
         answer: "2"
+    },
+    {
+        number: "Question 17",
+        title: "Which greenhouse gas is in most abundance in the Earth's atmosphere?",
+        choices: ["A. H2O", "B. CO2", "C. CH4", "D. O2"],
+        answer: "0"
     }
 ];
 
