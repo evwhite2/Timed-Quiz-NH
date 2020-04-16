@@ -100,6 +100,12 @@ var questions= [
         title: "Which greenhouse gas is in most abundance in the Earth's atmosphere?",
         choices: ["A. H2O", "B. CO2", "C. CH4", "D. O2"],
         answer: "0"
+    },
+    {
+        number: "Question 18",
+        title: "Which Era of Earth history is known also as the 'Age of Reptiles and Conifers'?",
+        choices: ["A. Mesoarchean", "B. Paleozoic", "C. Mesozoic", "D. Neoproterozoic"],
+        answer: "2"
     }
 ];
 
