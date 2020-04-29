@@ -144,7 +144,7 @@ function beginQuiz(){
 function timePerQ(){
     timeLeft--
     $("#timerStatus").text(timeLeft+ " seconds left");
-    if(timeLeft=== 0){
+    if(timeLeft <= 0){
         $("#timerStatus").text("Time's Up!");
         qCount++;
         nextQ();
@@ -185,17 +185,18 @@ function scoreKeeper(){
 $(".optionsBtn").on("click", function(userAnswer){
     userAnswer= userAnswer.target.getAttribute("value")
 
-
     if (userAnswer == questions[qCount].answer){
         score++;
         $("#timerStatus").text("Correct!");
-        
+        qCount++;
+        nextQ();
     }else{
         wrong++;
         $("#timerStatus").text("Wrong!");
+        timeLeft = timeLeft-5;
     }
-    qCount++;
-    nextQ();
+    
+    
 });
 
 $("#startBtn").on("click", beginQuiz);
