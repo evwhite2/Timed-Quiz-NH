@@ -94,8 +94,21 @@ h1{
     padding-left:20px;
     padding-right:20px;
     text-align: center;
-    margin-top: 20px;
-    
+    margin-top: 20px; 
+}
+
+#startOverBtn{
+    background-color:#7c87e2;
+    border:none;
+    border-radius: 30px;
+    color:whitesmoke;
+    font-size:40px;
+    display: none;
+    height:50px;
+    padding-left:20px;
+    padding-right:20px;
+    text-align: center;
+    margin-top: 20px; 
 }
 
 #timerStatus{

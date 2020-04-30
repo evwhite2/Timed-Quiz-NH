@@ -134,11 +134,17 @@ var userAnswer="";
 function beginQuiz(){
 
     $("#startBtn").remove();
+    $("#startOverBtn").css("display", "none");
+
     $(".optionsBtn").css("padding", "5px");
     $(".optionsBtn").css("width", "350px");
     timePerQ();
     timer = setInterval(timePerQ, 1000);
     nextQ();
+}
+
+function beginAgain(){
+    location.reload()
 }
 
 function timePerQ(){
@@ -170,7 +176,7 @@ function nextQ(){
         $("#form").empty();
         $(".info").empty();
         $("#timerStatus").attr("style", "font-size: 50px;");
-        $("timerStatus").attr("style", "color: white")
+        $("#timerStatus").css("color", "white")
         $("#timerStatus").text("Game Over");
         clearInterval(timer);
         scoreKeeper();
@@ -180,6 +186,7 @@ function nextQ(){
 
 
 function scoreKeeper(){
+    $("#startOverBtn").css("display", "block");
     $("#score").css("display", "block");
     $("#answerKey").css("display", "block");
     $("#score").text("You answered "+score+" questions correctly, and "+wrong+" questions incorrectly");
@@ -212,3 +219,5 @@ $(".optionsBtn").on("click", function(userAnswer){
 });
 
 $("#startBtn").on("click", beginQuiz);
+
+$("#startOverBtn").on("click", beginAgain);
