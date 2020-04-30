@@ -16,3 +16,5 @@ Tech Used:
 - jQuery
 
 Future Development:
+
+1. Add start over key
