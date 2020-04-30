@@ -36,11 +36,16 @@ h1{
     font-size: 20px;;
     height:50px;
 }
+.listA{
+    margin-top:5px; 
+    margin-bottom: 10px;  
+}
 
 .listQ{
     margin-top:10px;
     text-align: left;    
 }
+
 
 .main{
     display: flex;
@@ -60,6 +65,7 @@ h1{
 
 #answerKey{
     background-color: #7c86e2;
+    display: none;
     padding: 15px;
 }
 
@@ -71,9 +77,11 @@ h1{
 #score{
     background-color: #7c86e2;
     color: #272626;
+    display: none;
     font-family: fantasy;
     font-size:20px;
     padding: 15px;
+    text-align: center;
 }
 
 #startBtn{
@@ -97,13 +105,6 @@ h1{
     padding:20px;
 }
 
-#score{
-    background-color: #7c86e2;
-    color: #272626;
-    font-family: fantasy;
-    font-size:20px;
-    text-align: center;
-}
 #startBtn{
     background-color:#7c87e2;
     border:none;

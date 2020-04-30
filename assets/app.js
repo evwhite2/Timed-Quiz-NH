@@ -180,7 +180,8 @@ function nextQ(){
 
 
 function scoreKeeper(){
-    $("#score").css("padding", "5px");
+    $("#score").css("display", "block");
+    $("#answerKey").css("display", "block");
     $("#score").text("You answered "+score+" questions correctly, and "+wrong+" questions incorrectly");
     
     questions.forEach(q=>{
