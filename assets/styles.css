@@ -9,23 +9,6 @@ body{
     font-size:16px;
 }
 
-.container{
-    /* display: flex;
-    flex-direction: column; */
-    text-align: center;
-    margin: 10px;
-    /* justify-content: center; */
-}
-
-.main{
-    display: flex;
-    justify-content: center;
-}
-
-#form{
-    margin-top: 15px;
-
-}
 h1{
     background-color:#7c86e2;
     font-family: fantasy;
@@ -35,10 +18,33 @@ h1{
     padding:10px;
 }
 
+.big-container{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    margin: 50px;;
+    justify-content: center;
+}
+
+.container{
+    text-align: center;
+    margin: 10px;
+}
+
 .info{
     color: azure;
     font-size: 20px;;
     height:50px;
+}
+
+.listQ{
+    margin-top:10px;
+    text-align: left;    
+}
+
+.main{
+    display: flex;
+    justify-content: center;
 }
 
 .optionsBtn{
@@ -52,13 +58,24 @@ h1{
     text-align: center;
 }
 
+#answerKey{
+    background-color: #7c86e2;
+    padding: 15px;
+}
+
+#form{
+    margin-top: 15px;
+
+}
+
 #score{
     background-color: #7c86e2;
     color: #272626;
     font-family: fantasy;
     font-size:20px;
-    margin:5px;
+    padding: 15px;
 }
+
 #startBtn{
     background-color:#7c87e2;
     border:none;
@@ -72,46 +89,12 @@ h1{
     margin-top: 20px;
     
 }
+
 #timerStatus{
     font-family: impact;
     font-size:25px;
     height:40px;
     padding:20px;
-}
-.big-container{
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-    margin: 50px;;
-    justify-content: center;
-}
-
-h1{
-    background-color:#7c86e2;
-    font-family: fantasy;
-    font-size:35px;
-    height:30px;
-    text-align: right;
-    padding:10px;
-
-}
-
-.info{
-    color: azure;
-    font-size: 20px;;
-    height:50px;
-}
-
-.optionsBtn{
-    background-color:rgb(173, 230, 171);
-    border:none;
-    border-radius: 10px;
-    color: #272626;
-    font-size:20px;
-    justify-content: center;
-    margin:5px;
-    text-align: center;
-    width:100%;
 }
 
 #score{
@@ -119,9 +102,7 @@ h1{
     color: #272626;
     font-family: fantasy;
     font-size:20px;
-    margin:5px;
     text-align: center;
-    width:100%;
 }
 #startBtn{
     background-color:#7c87e2;
@@ -177,5 +158,4 @@ h1{
     #score{
         font-size:15px;
     }
-
   }

@@ -131,8 +131,8 @@ var score=0;
 var wrong=0;
 var userAnswer="";
 
-
 function beginQuiz(){
+
     $("#startBtn").remove();
     $(".optionsBtn").css("padding", "5px");
     $(".optionsBtn").css("width", "350px");
@@ -146,13 +146,14 @@ function timePerQ(){
     $("#timerStatus").text(timeLeft+ " seconds left");
     if(timeLeft <= 0){
         $("#timerStatus").text("Time's Up!");
+        wrong++;
         qCount++;
         nextQ();
     }
 }
 
 function nextQ(){
-    
+
     console.log(`Question: ${qCount}`);
 
     if(qCount< endGameCt){
@@ -169,6 +170,7 @@ function nextQ(){
         $("#form").empty();
         $(".info").empty();
         $("#timerStatus").attr("style", "font-size: 50px;");
+        $("timerStatus").attr("style", "color: white")
         $("#timerStatus").text("Game Over");
         clearInterval(timer);
         scoreKeeper();
@@ -179,7 +181,17 @@ function nextQ(){
 
 function scoreKeeper(){
     $("#score").css("padding", "5px");
-    $("#score").text("You answered "+score+" questions correctly, and "+wrong+" questions incorrectly");   
+    $("#score").text("You answered "+score+" questions correctly, and "+wrong+" questions incorrectly");
+    
+    questions.forEach(q=>{
+        var newDivQ= $("<div></div>");
+        var newDivA = $("<div></div>");
+        newDivQ.addClass("listQ");
+        newDivA.addClass("listA");
+        newDivQ.text(`${q.number}: ${q.title}`);
+        newDivA.text(`Answer: ${q.choices[q.answer]}`);
+        $("#answerKey").append(newDivQ, newDivA);   
+    })
 }
 
 $(".optionsBtn").on("click", function(userAnswer){
@@ -191,7 +203,6 @@ $(".optionsBtn").on("click", function(userAnswer){
         qCount++;
         nextQ();
     }else{
-        wrong++;
         $("#timerStatus").text("Wrong!");
         timeLeft = timeLeft-5;
     }

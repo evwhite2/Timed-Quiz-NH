@@ -16,6 +16,3 @@ Tech Used:
 - jQuery
 
 Future Development:
-
-1. Add Penalty to time left per question, forcing user to click possible answers twice instead of once. 
-2. Add "start over" button at end of Quiz.
